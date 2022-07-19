@@ -1,4 +1,5 @@
 import io
+import time
 
 from picamera2 import Picamera2
 from base_camera import BaseCamera
@@ -18,3 +19,4 @@ class Camera(BaseCamera):
                 next_frame.save(stream, format='JPEG')
                 yield stream.getvalue()
                 stream.seek(0)
+                time.sleep(0.33)
