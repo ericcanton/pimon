@@ -8,7 +8,7 @@ class Camera(BaseCamera):
     def frames():
         stream = io.BytesIO()
         with Picamera2() as camera:
-            camera.configure(camera.create_still_configuration())
+            camera.configure(camera.create_still_configuration(main={"size": (800, 600)}))
             camera.start(show_preview=False)
 
             while True:
